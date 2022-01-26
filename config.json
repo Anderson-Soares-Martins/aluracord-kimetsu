@@ -1,0 +1,41 @@
+{
+  "name": "Aluracord - Matrix (peas)",
+  "theme": {
+    "colors": {
+      "primary": {
+        "050": "#FCBDB0",
+        "100": "#FBAC9D",
+        "200": "#FB9C89",
+        "300": "#FA8B75",
+        "400": "#F97B62",
+        "500": "#F96A4E",
+        "600": "#F85A3A",
+        "700": "#F74926",
+        "800": "#F63913",
+        "900": "#EC2F09"
+      },
+      "neutrals": {
+        "000": "#FFFFFF",
+        "050": "#F5F7FA",
+        "100": "#E4E7EB",
+        "200": "#CBD2D9",
+        "300": "#9AA5B1",
+        "400": "#52667A",
+        "500": "#313D49",
+        "600": "#29333D",
+        "700": "#212931",
+        "800": "#181F25",
+        "900": "#101418",
+        "999": "#080A0C"
+      }
+    }
+  },
+  "stickers": [
+    "http://2.bp.blogspot.com/-d21tffsTIQo/U_H9QjC69gI/AAAAAAAAKqM/wnvOyUr6a_I/s1600/Pikachu%2B2.gif",
+    "https://media1.giphy.com/media/BdghqxNFV4efm/200.gif",
+    "https://c.tenor.com/TKpmh4WFEsAAAAAC/alura-gaveta-filmes.gif",
+    "https://i.pinimg.com/originals/0b/1c/23/0b1c2307c83e1ebdeed72e41b9a058ad.gif",
+    "https://c.tenor.com/VylWt5lyjBoAAAAC/omg-yes.gif",
+    "https://i.pinimg.com/originals/96/34/c5/9634c520c9a3cd4e7f23190bb2c96500.gif"
+  ]
+}

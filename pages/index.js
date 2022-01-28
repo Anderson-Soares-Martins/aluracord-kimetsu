@@ -1,59 +1,41 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components'
 import appConfig from '../config.json'
-
-
-function GlobalStyle() {
-    return (
-      <style global jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          list-style: none;
-        }
-        body {
-          font-family: 'Fira Code';
-        }
-        /* App fit Height */ 
-        html, body, #__next {
-          min-height: 100vh;
-          display: flex;
-          flex: 1;
-        }
-        #__next {
-          flex: 1;
-        }
-        #__next > * {
-          flex: 1;
-        }
-        /* ./App fit Height */ 
-      `}</style>
-    );
-  }
+import { useRouter } from 'next/router';
+import React from 'react'
 
 function Title(props) {
-    console.log(props)
-    const Tag = props.tag || "h1"
-    return (
-        <>
-            <Tag>{props.children}</Tag>
-            <style jsx>{`
+  console.log(props)
+  const Tag = props.tag || "h1"
+  return (
+    <>
+      <Tag>{props.children}</Tag>
+      <style jsx>{`
                 ${Tag} {
                     color: ${appConfig.theme.colors.neutrals[900]};
                     font-size: 24 px;
                     font-weight: 600;
                 }
             `}</style>
-        </>
-    )
+    </>
+  )
 }
 
 function HomePage() {
-    const username = 'Anderson-Soares-Martins';
+  // const username = 'Anderson-Soares-Martins';
+  const [username, setUsername] = React.useState('Anderson-Soares-Martins')
+  const validName = () => {
+    if(username.length<3){
+      return ""
+    }else{
+      return username
+    }
+  }
+  const name = validName()
+  console.log(name)
+  const router = useRouter()
 
   return (
     <>
-      <GlobalStyle />
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -82,6 +64,11 @@ function HomePage() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              console.log('Alguém submeteu o form')
+              router.push('/chat')
+            }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -94,6 +81,15 @@ function HomePage() {
 
             <TextField
               fullWidth
+              value={username}
+              onChange={(event) => {
+                console.log(event)
+                console.log('Usuario digitou', event.target.value)
+                // Onde ta o valor?
+                const valor = event.target.value
+                // Trocar o valor da variavel
+                setUsername(valor)
+              }}
               textFieldColors={{
                 neutral: {
                   textColor: appConfig.theme.colors.neutrals[100],
@@ -139,7 +135,8 @@ function HomePage() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+
+              src={`https://github.com/${name}.png`}
             />
             <Text
               variant="body4"
@@ -150,7 +147,7 @@ function HomePage() {
                 borderRadius: '1000px'
               }}
             >
-              {username}
+              {name}
             </Text>
           </Box>
           {/* Photo Area */}
